@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+synthetic:
+  audit:
+    mode: kafka
+    kafka-topic: audit-log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics
+
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
